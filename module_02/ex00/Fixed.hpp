@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 18:27:16 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/08 20:53:06 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/08 17:30:51 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/08 19:34:33 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "karen.hpp"
+#ifndef _FIXED_
+#define _FIXED_
 
-int main()
+#include <iostream>
+
+class Fixed
 {
-    Karen karen;
+    private:
+        int _val;
+        static const int _fract_bits = 8;
+    public:
+        Fixed();
+        Fixed(Fixed &asg);
+        ~Fixed();
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
+        void operator=(Fixed &asg);
+};
 
-    karen.complain("INFO");
-    return (0);
-}
+#endif

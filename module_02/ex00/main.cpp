@@ -5,17 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 18:27:16 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/08 20:53:06 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/08 17:28:42 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/08 19:34:02 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "karen.hpp"
+#include "Fixed.hpp"
 
-int main()
+int main( void ) 
 {
-    Karen karen;
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
 
-    karen.complain("INFO");
-    return (0);
+    c = b;
+
+    std::cout << "(a) " << a.getRawBits() << std::endl;
+    std::cout << "(b) " << b.getRawBits() << std::endl;
+    std::cout << "(c) " << c.getRawBits() << std::endl;
+    return 0;
 }
