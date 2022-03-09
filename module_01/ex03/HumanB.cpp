@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 20:11:33 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/05 21:11:38 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/09 18:34:14 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void HumanB::setWeapon(Weapon &club)
 
 void HumanB::attack()
 {
-    std::cout << getName() << " attack with his " << _weapon->getType() << std::endl;
+    if (_weapon)
+        std::cout << getName() << " attack with his " << _weapon->getType() << std::endl;
+    else
+        std::cout << getName() << " attack with no weapon" << std::endl;        
 }
