@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 21:02:10 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/11 18:06:57 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/11 19:00:43 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/11 21:09:56 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _CLAP_TRAP_
-#define _CLAP_TRAP_
+#ifndef _DIAMOND_TRAP_
+#define _DIAMOND_TRAP_
 
-#include <iostream>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
-    private:
+    protected:
         std::string _name;
-        int _hitpoints;
-        int _energy_points;
-        int _attack_damage;
     public:
-        ClapTrap(std::string name);
-        ClapTrap(ClapTrap const &asg);
-        ClapTrap();
-        ~ClapTrap();
-        void operator=(ClapTrap const &asg);
+        DiamondTrap();
+        DiamondTrap(DiamondTrap const &asg);
+        DiamondTrap(std::string name);
+        ~DiamondTrap();
+        void operator=(DiamondTrap const &asg);
         void attack(std::string const & target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
+        void whoAmI();
+        void myStats();
 };
 
 #endif

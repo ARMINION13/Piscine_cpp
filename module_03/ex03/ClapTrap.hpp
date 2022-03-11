@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:02:10 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/11 18:06:57 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/11 18:42:30 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string _name;
         int _hitpoints;
         int _energy_points;
