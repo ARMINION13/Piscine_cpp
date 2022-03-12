@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongDog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 17:04:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 16:39:49 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/12 17:34:38 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/12 18:45:07 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FRAG_TRAP_
-#define _FRAG_TRAP_
+#include "WrongDog.hpp"
 
-#include "ClapTrap.hpp"
+WrongDog::WrongDog()
+{
+    std::cout << "WrongDog constructor called" << std::endl;
+    _type = "Dog";
+}
 
-class FragTrap : virtual public ClapTrap
-{  
-    public:
-        FragTrap();
-        FragTrap(FragTrap const &asg);
-        FragTrap(std::string name);
-        ~FragTrap();
-        void operator=(FragTrap const &asg);
-        void attack(std::string const & target);
-        void highFivesGuys();
-};
+WrongDog::~WrongDog()
+{
+    std::cout << "WrongDog constructor called" << std::endl;    
+}
 
-#endif
+void WrongDog::makeSound() const
+{
+    std::cout << "Meow!" << std::endl;
+}

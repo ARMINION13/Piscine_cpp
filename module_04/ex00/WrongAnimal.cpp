@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 17:04:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 16:39:49 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/12 17:36:09 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/12 18:40:01 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FRAG_TRAP_
-#define _FRAG_TRAP_
+#include "WrongAnimal.hpp"
 
-#include "ClapTrap.hpp"
+WrongAnimal::WrongAnimal()
+{
+    std::cout << "WrongAnimal constructor called" << std::endl;
+}
 
-class FragTrap : virtual public ClapTrap
-{  
-    public:
-        FragTrap();
-        FragTrap(FragTrap const &asg);
-        FragTrap(std::string name);
-        ~FragTrap();
-        void operator=(FragTrap const &asg);
-        void attack(std::string const & target);
-        void highFivesGuys();
-};
+WrongAnimal::~WrongAnimal()
+{
+    std::cout << "WrongAnimal destructor called" << std::endl;
+}
 
-#endif
+std::string WrongAnimal::getType() const
+{
+    return (_type);
+}
+
+void WrongAnimal::makeSound() const
+{
+
+}

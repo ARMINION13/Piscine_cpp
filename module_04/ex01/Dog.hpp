@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 17:04:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 16:39:49 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/12 17:04:27 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/12 18:35:41 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FRAG_TRAP_
-#define _FRAG_TRAP_
+#ifndef _DOG_
+#define _DOG_
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class FragTrap : virtual public ClapTrap
-{  
+class Dog : public Animal
+{
     public:
-        FragTrap();
-        FragTrap(FragTrap const &asg);
-        FragTrap(std::string name);
-        ~FragTrap();
-        void operator=(FragTrap const &asg);
-        void attack(std::string const & target);
-        void highFivesGuys();
+        Dog();
+        void makeSound() const;
+        ~Dog();
+    private:
+        Brain *_brain;
 };
 
 #endif

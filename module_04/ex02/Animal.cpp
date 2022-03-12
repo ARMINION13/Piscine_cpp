@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 17:04:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 16:39:49 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/12 16:57:33 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/12 18:36:53 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FRAG_TRAP_
-#define _FRAG_TRAP_
+#include "Animal.hpp"
 
-#include "ClapTrap.hpp"
+Animal::Animal()
+{
+    std::cout << "Animal constructor called" << std::endl;
+}
 
-class FragTrap : virtual public ClapTrap
-{  
-    public:
-        FragTrap();
-        FragTrap(FragTrap const &asg);
-        FragTrap(std::string name);
-        ~FragTrap();
-        void operator=(FragTrap const &asg);
-        void attack(std::string const & target);
-        void highFivesGuys();
-};
+Animal::~Animal()
+{
+    std::cout << "Animal destructor called" << std::endl;
+}
 
-#endif
+std::string Animal::getType() const
+{
+    return (_type);
+}
+
+void Animal::makeSound() const
+{
+
+}
