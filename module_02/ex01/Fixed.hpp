@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:30:51 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/08 20:50:21 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:19:54 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define _FIXED_
 
 #include <iostream>
+#include <math.h>
 
 class Fixed
 {

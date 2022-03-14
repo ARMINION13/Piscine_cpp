@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:49:35 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/08 20:50:18 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/14 22:49:31 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Fixed::Fixed(const int nbr)
 Fixed::Fixed(const float nbr)
 {
     std::cout << "Float constructor called" << std::endl;
-    setRawBits(nbr * 256);
+    this->_val = roundf(256 * nbr);
 }
 
 int Fixed::toInt() const

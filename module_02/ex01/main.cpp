@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 17:28:42 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/08 20:50:28 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/14 22:53:26 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int main( void ) 
 {
+    //MAX_FIXED : 8388607
+    //MIN_FIXED : -8388608
     Fixed a;
-    Fixed const b( 10 );
+    Fixed const b(8388608);
     Fixed const c( 42.42f );
     Fixed const d( b );
 
