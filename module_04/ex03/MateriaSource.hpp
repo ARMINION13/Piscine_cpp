@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:48:43 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/15 21:21:40 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:08:30 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class MateriaSource : public IMateriaSource
         int _mposition;
     public:
         MateriaSource();
-        MateriaSource(MateriaSource &asg);
+        MateriaSource(const MateriaSource &asg);
         ~MateriaSource();
-        void operator=(MateriaSource &asg);
+        MateriaSource &operator=(const MateriaSource &asg);
         virtual void learnMateria(AMateria *m);
         virtual AMateria* createMateria(std::string const & type);  
 };

@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:11:59 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/14 23:05:31 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:06:59 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,15 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
     std::cout << "Meow!" << std::endl;
+}
+
+Cat::Cat(Cat &asg)
+{
+    *this = asg;
+}
+
+Cat &Cat::operator=(Cat &asg)
+{
+    this->_type = asg.getType();
+    return (*this);
 }

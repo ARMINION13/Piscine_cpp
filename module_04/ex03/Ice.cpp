@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:14:08 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/15 21:20:25 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:49:37 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Ice::Ice()
     _type = "ice";
 }
 
-Ice::Ice(Ice &asg)
+Ice::Ice(const Ice &asg)
 {
     *this = asg;
 }
@@ -34,6 +34,13 @@ AMateria* Ice::clone() const
     tmp = new Ice();
     return (tmp);
 }
+
+Ice &Ice::operator=(const Ice &asg)
+{
+    this->_type = asg._type;
+    return (*this);
+}
+
 
 void Ice::use(ICharacter& target)
 {

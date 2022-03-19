@@ -6,24 +6,28 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 16:56:21 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 18:51:17 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:00:29 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-void leak()
-{
-    system("leaks AnimalBrain");
-}
+// void leak()
+// {
+//     system("leaks AnimalBrain");
+// }
 
 int main()
 {
     const Animal* j = new Dog();
     const Animal* i = new Cat();
+    const Cat* k = new Cat();
+    const Cat* l = new Cat(*k);
     
+    delete l;
+    delete k;
     delete j;//should not create a leak
     delete i;
-    //atexit(leak);
+    // atexit(leak);
 }

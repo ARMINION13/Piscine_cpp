@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:33:47 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 18:43:08 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:17:58 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class WrongCat : public WrongAnimal
     public:
         WrongCat();
         ~WrongCat();
+        WrongCat(WrongCat &asg);
+        WrongCat &operator=(WrongCat &asg);
         void makeSound() const;
 };
 

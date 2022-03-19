@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:04:27 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 18:39:26 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:09:34 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class Cat : public Animal
 {
     public:
         Cat();
+        Cat(Cat &asg);
+        Cat &operator=(Cat &asg);
         void makeSound() const;
         ~Cat();
 };

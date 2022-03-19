@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:08:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/15 21:18:06 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:04:34 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ AMateria::AMateria()
     
 }
 
-AMateria::AMateria(AMateria &asg)
+AMateria::AMateria(const AMateria &asg)
 {
     *this = asg;
 }
@@ -33,9 +33,10 @@ AMateria::~AMateria()
     
 }
 
-void AMateria::operator=(AMateria &asg)
+AMateria &AMateria::operator=(const AMateria &asg)
 {
     this->_type = asg._type;
+    return (*this);
 }
 
 std::string const & AMateria::getType() const

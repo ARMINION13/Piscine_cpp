@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:34:38 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 18:45:07 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:14:39 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,15 @@ WrongDog::~WrongDog()
 void WrongDog::makeSound() const
 {
     std::cout << "Meow!" << std::endl;
+}
+
+WrongDog::WrongDog(WrongDog &asg)
+{
+    *this = asg;
+}
+
+WrongDog &WrongDog::operator=(WrongDog &asg)
+{
+    this->_type = asg.getType();
+    return (*this);
 }

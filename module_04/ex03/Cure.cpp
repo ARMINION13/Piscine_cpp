@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:14:08 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/15 21:25:47 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 21:51:08 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cure::Cure()
     _type = "cure";  
 }
 
-Cure::Cure(Cure &asg)
+Cure::Cure(const Cure &asg)
 {
     *this = asg;
 }
@@ -33,6 +33,12 @@ AMateria* Cure::clone() const
 
     tmp = new Cure();
     return (tmp);
+}
+
+Cure &Cure::operator=(const Cure &asg)
+{
+    this->_type = asg._type;
+    return (*this);
 }
 
 void Cure::use(ICharacter& target)

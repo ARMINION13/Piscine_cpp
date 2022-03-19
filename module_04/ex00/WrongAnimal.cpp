@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:36:09 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 18:40:01 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 20:48:22 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,16 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound() const
 {
+    std::cout << "Animal sound!!" << std::endl;   
+}
 
+WrongAnimal::WrongAnimal(WrongAnimal &asg)
+{
+    *this = asg;
+}
+
+WrongAnimal &WrongAnimal::operator=(WrongAnimal &asg)
+{
+    this->_type = asg.getType();
+    return (*this);
 }

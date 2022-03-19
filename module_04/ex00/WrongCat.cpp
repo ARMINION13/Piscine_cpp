@@ -27,3 +27,14 @@ void WrongCat::makeSound() const
 {
     std::cout << "Woof!" << std::endl;
 }
+
+WrongCat::WrongCat(WrongCat &asg)
+{
+    *this = asg;
+}
+
+WrongCat &WrongCat::operator=(WrongCat &asg)
+{
+    this->_type = asg.getType();
+    return (*this);
+}
