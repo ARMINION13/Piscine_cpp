@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:02:10 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/11 18:42:30 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 16:43:29 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ClapTrap
         ClapTrap(ClapTrap const &asg);
         ClapTrap();
         ~ClapTrap();
-        void operator=(ClapTrap const &asg);
+        ClapTrap &operator=(ClapTrap const &asg);
         void attack(std::string const & target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

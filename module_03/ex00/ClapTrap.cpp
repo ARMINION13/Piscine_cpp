@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 21:02:15 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/11 18:56:56 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 16:33:16 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ ClapTrap::ClapTrap(std::string name)  : _hitpoints(10), _energy_points(10), _att
 ClapTrap::ClapTrap(ClapTrap const &asg)
 {
     std::cout << "ClapTrap assignation constructor" << std::endl;
-    _name = asg._name;
-    _attack_damage = asg._attack_damage;
-    _energy_points = asg._energy_points;
-    _hitpoints = asg._hitpoints;
+    *this = asg;
 }
 
 ClapTrap::ClapTrap() : _hitpoints(10), _energy_points(10), _attack_damage(0)
@@ -38,12 +35,13 @@ ClapTrap::~ClapTrap()
        std::cout << "ClapTrap destructor" << std::endl;
 }
 
-void   ClapTrap::operator=(ClapTrap const &asg)
+ClapTrap   &ClapTrap::operator=(ClapTrap const &asg)
 {
     _name = asg._name;
     _attack_damage = asg._attack_damage;
     _energy_points = asg._energy_points;
     _hitpoints = asg._hitpoints;
+    return (*this);
 }
 
 void ClapTrap::attack(std::string const &target)

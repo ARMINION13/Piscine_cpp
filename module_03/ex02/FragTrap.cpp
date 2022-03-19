@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:19:51 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/11 18:54:36 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 16:42:29 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ FragTrap::FragTrap()
 FragTrap::FragTrap(FragTrap const &asg)
 {
     std::cout << "FragTrap assignation constructor" << std::endl;
-    _name = asg._name;
-    _attack_damage = asg._attack_damage;
-    _energy_points = asg._energy_points;
-    _hitpoints = asg._hitpoints;
+    *this = asg;
 }
 
 FragTrap::~FragTrap()
@@ -44,12 +41,13 @@ FragTrap::~FragTrap()
        std::cout << "FragTrap destructor" << std::endl;
 }
 
-void   FragTrap::operator=(FragTrap const &asg)
+FragTrap   &FragTrap::operator=(FragTrap const &asg)
 {
     _name = asg._name;
     _attack_damage = asg._attack_damage;
     _energy_points = asg._energy_points;
     _hitpoints = asg._hitpoints;
+    return (*this);
 }
 
 void FragTrap::attack(std::string const & target)
@@ -60,5 +58,5 @@ void FragTrap::attack(std::string const & target)
         
 void FragTrap::highFivesGuys()
 {
-    std::cout << "FragTrap : " << _name << " raise his hand with hope and no one noticed!" << std::endl;
+    std::cout << "FragTrap : " << _name << " raise his hand with hope and no one notice!" << std::endl;
 }

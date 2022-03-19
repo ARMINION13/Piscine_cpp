@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:04:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/12 16:39:49 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 17:03:12 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 
 class FragTrap : virtual public ClapTrap
 {  
+    protected:
+        std::string _aux;
     public:
         FragTrap();
         FragTrap(FragTrap const &asg);
         FragTrap(std::string name);
         ~FragTrap();
-        void operator=(FragTrap const &asg);
+        FragTrap &operator=(FragTrap const &asg);
         void attack(std::string const & target);
         void highFivesGuys();
 };

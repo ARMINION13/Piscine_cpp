@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 17:19:51 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/11 18:53:41 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/19 16:37:49 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ ScavTrap::ScavTrap()
 ScavTrap::ScavTrap(ScavTrap const &asg)
 {
     std::cout << "ScavTrap assignation constructor" << std::endl;
-    _name = asg._name;
-    _attack_damage = asg._attack_damage;
-    _energy_points = asg._energy_points;
-    _hitpoints = asg._hitpoints;
+    *this = asg;
 }
 
 ScavTrap::~ScavTrap()
@@ -44,12 +41,13 @@ ScavTrap::~ScavTrap()
        std::cout << "ScavTrap destructor" << std::endl;
 }
 
-void   ScavTrap::operator=(ScavTrap const &asg)
+ScavTrap   &ScavTrap::operator=(ScavTrap const &asg)
 {
     _name = asg._name;
     _attack_damage = asg._attack_damage;
     _energy_points = asg._energy_points;
     _hitpoints = asg._hitpoints;
+    return (*this);
 }
 
 void ScavTrap::attack(std::string const & target)

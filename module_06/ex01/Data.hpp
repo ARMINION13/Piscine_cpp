@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 17:04:11 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/19 16:41:31 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/18 23:09:10 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/18 23:09:59 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FRAG_TRAP_
-#define _FRAG_TRAP_
+#ifndef _SERIALIZATION_
+#define _SERIALIZATION_
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class FragTrap : virtual public ClapTrap
+struct Data
 {
-    public:
-        FragTrap();
-        FragTrap(FragTrap const &asg);
-        FragTrap(std::string name);
-        ~FragTrap();
-        FragTrap &operator=(FragTrap const &asg);
-        void attack(std::string const & target);
-        void highFivesGuys();
-
+    int val;
 };
 
 #endif
