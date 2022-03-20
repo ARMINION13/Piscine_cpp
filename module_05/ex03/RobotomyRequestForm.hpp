@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:26:53 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:18:06 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:42:16 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class RobotomyRequestForm : public Form
         RobotomyRequestForm(RobotomyRequestForm &asg);
         RobotomyRequestForm(std::string target);
 		virtual ~RobotomyRequestForm();
-		//RobotomyRequestForm &operator=(RobotomyRequestForm &asg);
+	    RobotomyRequestForm &operator=(RobotomyRequestForm &asg);
+        std::string getTarget() const;
         void execute(Bureacrat const & executor) const;
 };
 

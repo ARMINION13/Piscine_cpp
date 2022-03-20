@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 17:31:41 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 18:43:28 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:52:21 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Bureacrat
 		Bureacrat(int grade, std::string name);
 		Bureacrat(Bureacrat &asg);
 		~Bureacrat();
-		void operator=(Bureacrat &asg);
+		Bureacrat &operator=(Bureacrat &asg);
 		std::string getName() const;
 		int getGrade() const;
 		void increment();

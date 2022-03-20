@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:30:02 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 19:19:51 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:52:44 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ Form::~Form()
     
 }
 
-void Form::operator=(Form &asg)
+Form &Form::operator=(Form &asg)
 {
     _signed = asg.getSign();
+    return (*this);
 }
 
 std::string Form::getName() const
@@ -51,6 +52,15 @@ std::string Form::getName() const
 bool Form::getSign() const
 {
     return (_signed);
+}
+
+int Form::getMinSign() const 
+{
+    return (_min_grade_to_sign);
+}
+int Form::getMinExecute() const
+{
+    return (_min_grade_to_execute);    
 }
 
 void Form::beSigned(Bureacrat &bureacrat)
@@ -64,9 +74,9 @@ void Form::beSigned(Bureacrat &bureacrat)
 std::ostream&    operator<<(std::ostream &o, Form const &form)
 {
     if (form.getSign())
-        o << form.getName() << ", signed";
+        o << form.getName() << ", signed" << ", GradeSign: " << form.getMinSign() << ", GradeExec: " << form.getMinExecute();
     else
-        o << form.getName() << ", unsigned";
+        o << form.getName() << ", unsigned" << ", GradeSign: " << form.getMinSign() << ", GradeExec: " << form.getMinExecute();
     return o;
 }
 

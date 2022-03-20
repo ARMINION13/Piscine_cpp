@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 18:10:38 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:27:40 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:45:33 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ Bureacrat::~Bureacrat()
     
 }
 
-void Bureacrat::operator=(Bureacrat &asg)
+Bureacrat &Bureacrat::operator=(Bureacrat &asg)
 {
     _grade = asg.getGrade();
+    return (*this);
 }
 
 std::string Bureacrat::getName() const

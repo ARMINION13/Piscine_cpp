@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:14:17 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 18:51:03 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:52:54 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ class Form
 		Form(std::string name, int _min_grade_to_sign, int _min_grade_to_execute);
 		Form(Form &asg);
 		~Form();
-		void operator=(Form &asg);
+		Form &operator=(Form &asg);
         std::string getName() const;
 		bool getSign() const;
+		int getMinSign() const ;
+		int getMinExecute() const;
 		void beSigned(Bureacrat &bureacrat);
 		class GradeTooHighException : public std::exception 
 		{

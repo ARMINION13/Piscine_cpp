@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 17:11:59 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/19 20:44:44 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:50:14 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void Cat::makeSound() const
 
 Cat::Cat(const Cat &asg)
 {
-    _brain = new Brain();
-    *this = asg;
+    this->_type = asg.getType();
+    *(this->_brain) = *(asg._brain);
+    //*this = asg;
 }
 
 Cat &Cat::operator=(const Cat &asg)

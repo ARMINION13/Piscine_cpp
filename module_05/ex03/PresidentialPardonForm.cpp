@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:26:47 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:20:33 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:41:37 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,17 @@ PresidentialPardonForm::~PresidentialPardonForm()
     
 }
 
-// PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &asg)
-// {
-//     *this = asg;
-//     return (*this);
-// }
+std::string PresidentialPardonForm::getTarget() const
+{
+    return (_target);
+}
+
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &asg)
+{
+    _target = asg.getTarget();
+    return (*this);
+}
 
 void PresidentialPardonForm::execute(Bureacrat const & executor) const
 {

@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:27:16 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:15:11 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:50:10 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class ShrubberyCreationForm : public Form
         ShrubberyCreationForm(std::string _target);
         ShrubberyCreationForm(ShrubberyCreationForm &asg);
 		virtual ~ShrubberyCreationForm();
-		//ShrubberyCreationForm &operator=(ShrubberyCreationForm &asg);
+		ShrubberyCreationForm &operator=(ShrubberyCreationForm &asg);
+        std::string getTarget() const;
         void execute(Bureacrat const & executor) const;
 };
 

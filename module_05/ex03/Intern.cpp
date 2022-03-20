@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:38:37 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 23:08:47 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:43:47 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ Intern::~Intern()
     
 }
 
-void Intern::operator=(Intern &asg)
+Intern &Intern::operator=(Intern &asg)
 {
     (void)asg;
+    return (*this);
 }
 
 Form *Intern::makeForm(std::string form, std::string target)
@@ -52,6 +53,7 @@ Form *Intern::makeForm(std::string form, std::string target)
             return (new ShrubberyCreationForm(target));
         default:
             throw requestException(form + " type invalid");
+            
     }
 }
 

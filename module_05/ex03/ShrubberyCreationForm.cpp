@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:27:13 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:17:17 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:43:01 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     
 }
 
-// ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &asg)
-// {
-//     *this = asg;
-//     return (*this);
-// }
+std::string ShrubberyCreationForm::getTarget() const
+{
+    return (_target);
+}
+
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &asg)
+{
+    _target = asg.getTarget();
+    return (*this);
+}
 
 void ShrubberyCreationForm::execute(Bureacrat const & executor) const
 {

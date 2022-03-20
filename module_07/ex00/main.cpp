@@ -5,39 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 19:27:31 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/19 23:14:02 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/20 17:08:26 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/20 17:48:28 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
-#include "Cure.hpp"
-#include "Character.hpp"
-#include "MateriaSource.hpp"
+#include "whatever.hpp"
 
-int main()
+int main( void ) 
 {
-    IMateriaSource* src = new MateriaSource();
-
-    src->learnMateria(new Ice());
-    src->learnMateria(new Cure());
+    int a = 2;
+    int b = 3;
     
-    ICharacter* me = new Character("me");
+    ::swap<int>( a, b );
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min<int>( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max<int>( a, b ) << std::endl;
     
-    AMateria* tmp;
-    AMateria* tmp2;
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    ICharacter* bob = new Character("bob");
-    me->use(0, *bob);
-    tmp2 = src->createMateria("cure");
-    me->equip(tmp2);
-    me->use(1, *bob);
-  
-    delete tmp2;
-    delete tmp;
-    delete bob;
-    delete me;
-    delete src;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
+    
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+    
     return 0;
 }

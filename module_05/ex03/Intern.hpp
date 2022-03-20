@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 22:31:52 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 23:08:04 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:43:43 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Intern
         Intern();
         Intern(Intern &asg);
         ~Intern();
-        void operator=(Intern &asg);
+        Intern &operator=(Intern &asg);
         Form *makeForm(std::string form, std::string target);
         class requestException : public std::exception
         {

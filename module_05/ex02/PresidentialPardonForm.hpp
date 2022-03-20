@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:26:43 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:19:50 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:49:38 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class PresidentialPardonForm : public Form
         PresidentialPardonForm(PresidentialPardonForm &asg);
         PresidentialPardonForm(std::string target);
 		virtual ~PresidentialPardonForm();
-		//PresidentialPardonForm &operator=(PresidentialPardonForm &asg);
+		PresidentialPardonForm &operator=(PresidentialPardonForm &asg);
+        std::string getTarget() const;
         void execute(Bureacrat const & executor) const;
 };
 

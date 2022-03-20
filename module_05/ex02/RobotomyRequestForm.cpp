@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 20:26:50 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/17 22:19:10 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/20 21:48:43 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,17 @@ RobotomyRequestForm::~RobotomyRequestForm()
     
 }
 
-// RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &asg)
-// {
-//     *this = asg;
-//     return (*this);
-// }
+std::string RobotomyRequestForm::getTarget() const
+{
+    return (_target);
+}
+
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &asg)
+{
+    _target = asg.getTarget();
+    return (*this);
+}
 
 void RobotomyRequestForm::execute(Bureacrat const & executor) const
 {
