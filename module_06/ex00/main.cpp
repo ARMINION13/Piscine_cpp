@@ -6,12 +6,13 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 18:12:05 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/18 21:47:07 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/21 21:06:07 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 
 std::string ft_isnbr(std::string str)
 {
@@ -22,6 +23,7 @@ std::string ft_isnbr(std::string str)
     {
         if (it == 0 && (str[it] == '-' || str[it] == '+'))
         {
+            it++;
         }
         if ((str[it] >= '0' && str[it] <= '9') || str[it] == '.')
         {
@@ -63,6 +65,14 @@ void print_vars(char c, int i, float f, double d)
         std::cout << "double: " << d << std::endl;
 }
 
+bool max_min_int(std::string str)
+{
+    long long int i = stoll(str);
+    if (i < -2147483648 || i > 2147483647) 
+        return (false);
+    return (true);
+}
+
 int main(int argc, char **argv)
 {
     char c;
@@ -76,16 +86,8 @@ int main(int argc, char **argv)
     }
     std::string str = argv[1];
     std::string type = ft_isnbr(str);
-    if (static_cast<int>(str.length()) == 1 && type == "nan")
-    {
-        c = str[0];
-        i = static_cast<int>(c);
-        f = static_cast<float>(c);
-        d = static_cast<double>(c);
-        print_vars(c, i, f, d);
-        return (1);
-    }
-    if (type == "float")
+
+    if (type == "float" && str.length() < 40)
     {
         f = std::stof(str);
         i = static_cast<int>(f);
@@ -94,7 +96,7 @@ int main(int argc, char **argv)
         print_vars(c, i, f, d);
         return (1);
     }
-    if (type == "double")
+    if (type == "double" && str.length() < 40)
     {
         d = std::stof(str);
         i = static_cast<int>(d);
@@ -103,12 +105,24 @@ int main(int argc, char **argv)
         print_vars(c, i, f, d);
         return (1);
     }
-    if (type == "int")
+    if (type == "int" && str.length() < 40)
     {
-        i = std::stoi(str);
-        d = static_cast<double>(i);
-        c = static_cast<char>(i);
-        f = static_cast<float>(i);
+        if (max_min_int(str))
+        {
+            i = std::stoi(str);
+            d = static_cast<double>(i);
+            c = static_cast<char>(i);
+            f = static_cast<float>(i);
+            print_vars(c, i, f, d);
+            return (1);
+        }
+    }
+    if (static_cast<int>(str.length()) == 1)
+    {
+        c = str[0];
+        i = static_cast<int>(c);
+        f = static_cast<float>(c);
+        d = static_cast<double>(c);
         print_vars(c, i, f, d);
         return (1);
     }
@@ -118,6 +132,23 @@ int main(int argc, char **argv)
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: " << type << "f" << std::endl;
         std::cout << "double: " << type << std::endl;
+        return (-1);
+    }
+    if (static_cast<int>(str.length()) > 1 && (type == "-inff" || type == "+inff" || type == "nanf"))
+    {
+        std::string  array1[3]  = {"-inff", "+inff", "nanf"};
+        std::string  array2[3]  = {"-inf", "+inf", "nan"};
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: " << type << std::endl;
+        for (int i = 0; i < 3; i++)
+        {
+            if (array1[i] == type)
+            {
+                std::cout << "double: " << array2[i] << std::endl;        
+                return (-1);
+            } 
+        }
         return (-1);
     }
     else

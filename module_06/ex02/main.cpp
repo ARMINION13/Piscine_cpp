@@ -6,14 +6,13 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 23:10:25 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/19 20:02:01 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/21 20:46:19 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "B.hpp"
 #include "A.hpp"
 #include "C.hpp"
-#include "thread"
 
 Base *generate()
 {
@@ -48,12 +47,39 @@ void identify(Base *p)
 
 void identify(Base &p)
 {
-    if (dynamic_cast<A*>(&p))
+    try
+    {
+        A& a = dynamic_cast<A&>(p);
+        (void)a;
         std::cout << "Class A" << std::endl;
-    if (dynamic_cast<B*>(&p))
+        return ;
+    }
+    catch (const std::exception)
+    {
+        
+    }
+    try
+    {
+        B& b = dynamic_cast<B&>(p);
+        (void)b;
         std::cout << "Class B" << std::endl;
-    if (dynamic_cast<C*>(&p))
-        std::cout << "Class C" << std::endl;   
+        return ;
+    }
+    catch (const std::exception)
+    {
+        
+    }
+    try
+    {
+        C& c = dynamic_cast<C&>(p);
+        (void)c;
+        std::cout << "Class C" << std::endl;
+        return ;
+    }
+    catch (const std::exception)
+    {
+           
+    }
 }
 
 int main()
