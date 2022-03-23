@@ -5,32 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 21:01:49 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/23 17:03:05 by rgirondo         ###   ########.fr       */
+/*   Created: 2022/03/23 20:15:01 by rgirondo          #+#    #+#             */
+/*   Updated: 2022/03/23 20:27:28 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <vector>
+#include "mutantstack.hpp"
 
 int main()
 {
-    std::vector<int> v;
-    // v.push_back(1);
-    // v.push_back(2);
-    // v.push_back(3);
-    // v.push_back(4);
-    // v.push_back(5);
-    std::vector<int>::iterator it;
-
-    try
+    MutantStack<int> mstack;
+    
+    mstack.push(5);
+    mstack.push(17);
+    
+    std::cout << mstack.top() << std::endl;
+    
+    mstack.pop();
+    
+    std::cout << mstack.size() << std::endl;
+    
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    
+    ++it;
+    --it;
+    
+    while (it != ite)
     {
-        it = easyfind(v, 0);
         std::cout << *it << std::endl;
+        ++it;
     }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    return (1);
+    
+    std::stack<int> s(mstack);
+    return 0;
 }

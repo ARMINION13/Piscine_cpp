@@ -1,4 +1,4 @@
-NAME = Array
+NAME = Span
 
 all : $(NAME)
 
@@ -8,9 +8,9 @@ CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 TRAP = -Wshadow -Wno-shadow
 
-SRCS = main.cpp\
+SRCS = main.cpp span.cpp\
 
-OBJS = main.o\
+OBJS = main.o span.o\
 
 $(OBJS) : $(SRCS)
 

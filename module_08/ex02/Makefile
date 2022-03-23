@@ -1,4 +1,4 @@
-NAME = Array
+NAME = MutantStack
 
 all : $(NAME)
 
@@ -8,9 +8,9 @@ CPPFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 TRAP = -Wshadow -Wno-shadow
 
-SRCS = main.cpp\
+SRCS = main.cpp MutantStack.cpp\
 
-OBJS = main.o\
+OBJS = main.o MutantStack.o\
 
 $(OBJS) : $(SRCS)
 
