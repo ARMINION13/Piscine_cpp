@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:55:23 by rgirondo          #+#    #+#             */
-/*   Updated: 2022/03/23 21:06:58 by rgirondo         ###   ########.fr       */
+/*   Updated: 2022/03/24 16:43:05 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ Span::Span(unsigned int N)
 
 Span::Span(const Span &asg)
 {
-    // _v = asg.getContainer();
-    // _N = asg.getLimit();
     *this = asg;
 }
 
@@ -72,11 +70,14 @@ int  Span::shortestSpan()
 {
     if (_v.size() <= 1)
         throw SpanLimitException();
+    std::vector<int> v2;
+    v2 = _v; 
+    sort(v2.begin(), v2.end());
     int tmp = 0;
-    int shortest = (*_v.begin() - *(_v.begin() + 1));
+    int shortest = (*v2.begin() - *(v2.begin() + 1));
     if (shortest < 0)
         shortest *= -1;
-    for (std::vector<int>::iterator it = _v.begin(); it < (_v.end() - 1); it++)
+    for (std::vector<int>::iterator it = v2.begin(); it < (v2.end() - 1); it++)
     {
         tmp = (*it - *(it + 1));
         if (tmp < 0)
@@ -91,18 +92,12 @@ int  Span::longestSpan()
 {
     if (_v.size() <= 1)    
         throw SpanLimitException();
-    int tmp = 0;
-    int longest = (*_v.begin() - *(_v.begin() + 1));
+    std::vector<int> v2;
+    v2 = _v; 
+    sort(v2.begin(), v2.end());
+    int longest = (*v2.begin() - *(v2.end() - 1));
     if (longest < 0)
         longest *= -1;
-    for (std::vector<int>::iterator it = _v.begin(); it < (_v.end() - 1); it++)
-    {
-        tmp = (*it - *(it + 1));
-        if (tmp < 0)
-            tmp *= -1;
-        if (tmp > longest)
-            longest = tmp;
-    }
     return (longest);
 }
 
