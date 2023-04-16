@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 19:29:35 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/10 21:58:05 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:38:43 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,14 @@ void    BitcoinExchange::get_csv_data(std::string file)
         getline(aux1, aux2, ',');
         aux2.erase(std::remove_if(aux2.begin(), aux2.end(), isspace), aux2.end());
         if (is_date(aux2) == false)
-            std::cout << "Error: bad input date => " << aux2 << std::endl;
+            std::cout << "Error: bad input date => " << line << std::endl;
         else
         {
             parsed.first = aux2;
             getline(aux1, aux2, ',');
             aux2.erase(std::remove_if(aux2.begin(), aux2.end(), isspace), aux2.end());
             if (is_float(aux2) == false)
-                std::cout << "Error: bad input value => " << aux2 << std::endl;
+                std::cout << "Error: bad input value => " << line << std::endl;
             else
             {
                 parsed.second = stof(aux2);
