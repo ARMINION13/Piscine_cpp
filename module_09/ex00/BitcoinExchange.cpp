@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 19:29:35 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/12 16:38:43 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/04/16 19:01:16 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool is_int(std::string str)
 			str[0] = '0';
         for (std::string::iterator it = str.begin(); it != str.end(); it++)
         {
-            if (*it < '0' && *it > '9')
+            if (*it < '0' || *it > '9')
                 return (false);
         }
         return(true);

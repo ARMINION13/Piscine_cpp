@@ -5,28 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 16:53:27 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/16 15:41:08 by rgirondo         ###   ########.fr       */
+/*   Created: 2023/04/16 15:36:15 by rgirondo          #+#    #+#             */
+/*   Updated: 2023/04/16 15:59:28 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./BitcoinExchange.hpp"
-
-// void leaks()
-// {
-//     system("leaks btc");
-// }
+#include "RPN.hpp"
 
 int main(int argc, char **argv)
 {
-    //atexit(leaks);
-    BitcoinExchange csv_data;
+    RPN oper;
 
-    csv_data.get_csv_data("./data.csv");
-    if (argc > 1)
-        csv_data.do_exchange(std::string(argv[1]));
-    else
-        std::cout << "Error:" << " could not open file." << std::endl;
-    
-    return (0);
+    if (argc < 2)
+    {
+        std::cout << "Error: no arguments" << std::endl;
+        return (-1);
+    }
+    if (oper.check_RPN(std::string(argv[1])) == false)
+    {
+        std::cout << "Error: not valid RPN" << std::endl;
+        return (-1);
+    }
 }
