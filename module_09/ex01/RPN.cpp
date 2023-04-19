@@ -6,11 +6,20 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:52:55 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/16 18:57:57 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:41:35 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <sstream>
+
+template<typename N>
+std::string to_str(N nbr)
+{
+    std::ostringstream sstr;
+    sstr << nbr;
+    return sstr.str();
+}
 
 bool is_unsigned_int(std::string str)
 {
@@ -58,7 +67,7 @@ bool RPN::check_RPN(std::string str)
             aux3.push(aux2);
         }
     }
-    if (is_operator(aux3.top()) == false || op < 1)
+    if (is_operator(aux3.top()) == false || op != 1)
         return false;
     while (!aux3.empty())
     {
@@ -68,18 +77,45 @@ bool RPN::check_RPN(std::string str)
     return true;
 }
 
+void RPN::operate()
+{
+    std::stack<int> nbr;
+    int nbr1;
+    int nbr2;
+
+    while (_stack.empty() == false && is_unsigned_int(_stack.top()))
+    {
+        nbr.push(stof(_stack.top()));
+        _stack.pop();
+    }
+    while (_stack.empty() == false && is_operator(_stack.top()))
+    {
+        nbr1 = nbr.top();
+        nbr.pop();
+        nbr2 = nbr.top();
+        nbr.pop();
+        if  (_stack.top() == "-")
+            nbr.push(nbr2 - nbr1);
+        if  (_stack.top() == "+")
+            nbr.push(nbr2 + nbr1);
+        if  (_stack.top() == "*")
+            nbr.push(nbr2 * nbr1);
+        if  (_stack.top() == "/")
+            nbr.push(nbr2 / nbr1);
+        _stack.pop();
+    }
+    _stack.push(to_str(nbr.top()));
+}
+
 int RPN::do_RPN()
 {
-    std::stack<std::string> oper;
-    std::stack<int> aux;
     int result = 0;
 
     if (_stack.empty())
         return 0;   
-    while (!_stack.empty())
-    { 
-        
-    }
+    while (_stack.size() > 2)
+        operate();
+    result = stof(_stack.top());
     return result;
 }
 

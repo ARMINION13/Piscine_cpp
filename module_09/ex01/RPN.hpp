@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:44:59 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/16 17:47:29 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:49:43 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class RPN
     private:
         stack_type  _stack;
 
+        void operate();
     public:
         RPN();
         ~RPN();
