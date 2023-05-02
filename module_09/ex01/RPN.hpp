@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 14:44:59 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/19 17:49:43 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/05/02 21:47:16 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class RPN
     private:
         stack_type  _stack;
 
-        void operate();
+        bool operate();
     public:
         RPN();
         ~RPN();
@@ -36,7 +36,7 @@ class RPN
         RPN &operator=(RPN &asg);
         
         bool check_RPN(std::string str);
-        int do_RPN();
+        bool do_RPN();
 };
 
 #endif

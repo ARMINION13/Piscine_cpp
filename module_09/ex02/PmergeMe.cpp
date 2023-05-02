@@ -51,25 +51,85 @@ bool is_unsigned_int(std::string str)
     return true;
 }
 
-bool    is_already_in(PmergeMe::vector_type vct, std::string str)
-{
-    for(PmergeMe::vector_type::iterator it = vct.begin(); it != vct.end(); it++)
-    {
-        if (*it == str)
-            return true;
-    }
-    return false;
-}
-
 bool    PmergeMe::initialize(char **argv)
 {
     for(int i = 1; argv[i] != NULL; i++)
     {
         //std::cout << "argv[" << i << "] = " << std::string(argv[i]) << std::endl;
-        if (!is_unsigned_int(std::string(argv[i])) || is_already_in(this->_vct, std::string(argv[i])))
+        if (!is_unsigned_int(std::string(argv[i])))
             return false;
-        this->_vct.push_back(std::string(argv[i]));
-        this->_dqe.push_back(std::string(argv[i]));
+        this->_vct.push_back(stof(std::string(argv[i])));
+        this->_dqe.push_back(stof(std::string(argv[i])));
     }
     return true;
+}
+
+PmergeMe::vector_type PmergeMe::sort(PmergeMe::vector_type vct)
+{
+    vector_type A;
+    vector_type B;
+
+    for (vector_type::iterator it = vct.begin(); it != vct.end(); it++)
+    {
+        if (it + 1 == vct.end())
+            B.push_back(*it);
+        else
+        {
+            if (*it > *(it + 1))
+            {
+                B.push_back(*(it++));
+                A.push_back(*it);
+            }
+            else
+            {
+                A.push_back(*(it++));
+                B.push_back(*it);
+            }
+        }
+    }
+
+    std::cout << "A) ";
+    for(PmergeMe::vector_type::iterator it = A.begin(); it != A.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl << "B) ";
+    for(PmergeMe::vector_type::iterator it = B.begin(); it != B.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+
+    if (vct.size() > 2)
+        A = sort(A);
+    if (vct.size() == 1)
+        return vct;
+    else
+    {
+        int aux = A[1];
+        if (A[0] > A[1])
+        {
+            A[1] = A[0];
+            A[0] = aux;
+        }
+    }
+
+    for(PmergeMe::vector_type::reverse_iterator itb = B.rbegin(); itb != B.rend(); itb++)
+    {
+        
+    }
+
+
+    return vct;
+    
+}
+
+PmergeMe::deque_type  PmergeMe::sort(PmergeMe::deque_type dqe)
+{
+    return dqe;
+}
+
+bool    PmergeMe::sort()
+{
+    if (_vct.size() < 1 || _dqe.size() < 1)
+        return false;
+    _vct = sort(_vct);
+    _dqe = sort(_dqe);
+    return (std::is_sorted(_vct.begin(), _vct.end()) && std::is_sorted(_dqe.begin(), _dqe.end()));
 }

@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 15:36:15 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/19 17:49:26 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/05/02 21:49:59 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main(int argc, char **argv)
         std::cout << "Error: not valid RPN input" << std::endl;
         return (-1);
     }
-    std::cout << oper.do_RPN() << std::endl;
+    if (oper.do_RPN() == false)
+        return (-1);
     return 0;
 }

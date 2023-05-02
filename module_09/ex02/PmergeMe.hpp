@@ -11,8 +11,8 @@
 class PmergeMe
 {
     public:
-        typedef std::vector<std::string> vector_type;
-        typedef std::deque<std::string> deque_type;
+        typedef std::vector<int> vector_type;
+        typedef std::deque<int> deque_type;
 
     private:
         vector_type _vct;
@@ -28,6 +28,11 @@ class PmergeMe
         vector_type getVector() const;
         deque_type  getDeque() const;
         bool        initialize(char **argv);
+        bool        sort();
+
+    private:
+        vector_type sort(vector_type vct);
+        deque_type  sort(deque_type dqe);
 };
 
 #endif

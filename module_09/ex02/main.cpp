@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:05:54 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/04/26 12:57:18 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/05/01 20:10:50 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(int argc, char **argv)
             for(PmergeMe::deque_type::iterator it = dqe.begin(); it != dqe.end(); it++)
                 std::cout << *it << " ";
             std::cout << std::endl;
+            PM.sort();
         }
         else
             std::cout << "Error: args duplicated or not possitive numbers" << std::endl;
