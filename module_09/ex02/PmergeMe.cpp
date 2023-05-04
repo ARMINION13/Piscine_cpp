@@ -88,48 +88,73 @@ PmergeMe::vector_type PmergeMe::sort(PmergeMe::vector_type vct)
         }
     }
 
-    std::cout << "A) ";
-    for(PmergeMe::vector_type::iterator it = A.begin(); it != A.end(); it++)
-        std::cout << *it << " ";
-    std::cout << std::endl << "B) ";
-    for(PmergeMe::vector_type::iterator it = B.begin(); it != B.end(); it++)
-        std::cout << *it << " ";
-    std::cout << std::endl;
-
     if (vct.size() > 2)
         A = sort(A);
     if (vct.size() == 1)
         return vct;
-    else
+
+    for(int i = (B.size() - 1); i >= 0; i--)
     {
-        int aux = A[1];
-        if (A[0] > A[1])
-        {
-            A[1] = A[0];
-            A[0] = aux;
-        }
+        PmergeMe::vector_type::iterator ita = A.begin(); 
+        while ((ita + 1) != A.end() && *ita > B[i])
+            ita++;
+        A.insert(ita, B[i]);
     }
-
-    for(PmergeMe::vector_type::reverse_iterator itb = B.rbegin(); itb != B.rend(); itb++)
-    {
-        
-    }
-
-
-    return vct;
-    
+    return A;
 }
 
 PmergeMe::deque_type  PmergeMe::sort(PmergeMe::deque_type dqe)
 {
-    return dqe;
+    deque_type A;
+    deque_type B;
+
+    for (deque_type::iterator it = dqe.begin(); it != dqe.end(); it++)
+    {
+        if (it + 1 == dqe.end())
+            B.push_back(*it);
+        else
+        {
+            if (*it > *(it + 1))
+            {
+                B.push_back(*(it++));
+                A.push_back(*it);
+            }
+            else
+            {
+                A.push_back(*(it++));
+                B.push_back(*it);
+            }
+        }
+    }
+
+    if (dqe.size() > 2)
+        A = sort(A);
+    if (dqe.size() == 1)
+        return dqe;
+
+    for(int i = (B.size() - 1); i >= 0; i--)
+    {
+        PmergeMe::deque_type::iterator ita = A.begin(); 
+        while ((ita + 1) != A.end() && *ita > B[i])
+            ita++;
+        A.insert(ita, B[i]);
+    }
+    return A;
 }
 
 bool    PmergeMe::sort()
 {
-    if (_vct.size() < 1 || _dqe.size() < 1)
-        return false;
-    _vct = sort(_vct);
-    _dqe = sort(_dqe);
-    return (std::is_sorted(_vct.begin(), _vct.end()) && std::is_sorted(_dqe.begin(), _dqe.end()));
+    if (_vct.size() > 1 || _dqe.size() > 1)
+    {
+        _vct = sort(_vct);
+        _dqe = sort(_dqe);
+    }
+    std::cout << "VCT) ";
+    for(PmergeMe::vector_type::iterator it = _vct.begin(); it != _vct.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl << "DQE) ";
+    for(PmergeMe::deque_type::iterator it = _dqe.begin(); it != _dqe.end(); it++)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+    return (std::is_sorted(_vct.rbegin(), _vct.rend()) && std::is_sorted(_dqe.rbegin(), _dqe.rend()));
 }

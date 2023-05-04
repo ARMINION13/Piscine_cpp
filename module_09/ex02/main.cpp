@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:05:54 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/05/01 20:10:50 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:47:51 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int main(int argc, char **argv)
         std::cout << "Error: no arguments provided" << std::endl;
         return (-1);
     }
-    if (argc == 2)
-        return (0);
     else
     {
         if (PM.initialize(argv) == true)
@@ -39,7 +37,10 @@ int main(int argc, char **argv)
             for(PmergeMe::deque_type::iterator it = dqe.begin(); it != dqe.end(); it++)
                 std::cout << *it << " ";
             std::cout << std::endl;
-            PM.sort();
+            if (PM.sort() == true) 
+                std::cout << "SUCCESS" << std::endl;
+            else
+                std::cout << "FAILURE" << std::endl;
         }
         else
             std::cout << "Error: args duplicated or not possitive numbers" << std::endl;
