@@ -6,7 +6,7 @@
 /*   By: rgirondo <rgirondo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:05:54 by rgirondo          #+#    #+#             */
-/*   Updated: 2023/05/04 18:47:51 by rgirondo         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:45:45 by rgirondo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
                 std::cout << "FAILURE" << std::endl;
         }
         else
-            std::cout << "Error: args duplicated or not possitive numbers" << std::endl;
+            std::cout << "Error: no possitive numbers" << std::endl;
     }
     return (0);
 }

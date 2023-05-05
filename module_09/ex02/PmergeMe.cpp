@@ -144,10 +144,18 @@ PmergeMe::deque_type  PmergeMe::sort(PmergeMe::deque_type dqe)
 
 bool    PmergeMe::sort()
 {
+    std::chrono::system_clock::time_point start = std::chrono::system_clock::now();
+    std::chrono::duration<double> vct_t;
+    std::chrono::duration<double> dqe_t;
+
     if (_vct.size() > 1 || _dqe.size() > 1)
     {
         _vct = sort(_vct);
+        std::chrono::system_clock::time_point mid = std::chrono::system_clock::now();
+        vct_t = mid - start;
         _dqe = sort(_dqe);
+        std::chrono::system_clock::time_point end = std::chrono::system_clock::now();
+        dqe_t = end - mid;
     }
     std::cout << "VCT) ";
     for(PmergeMe::vector_type::iterator it = _vct.begin(); it != _vct.end(); it++)
@@ -156,5 +164,9 @@ bool    PmergeMe::sort()
     for(PmergeMe::deque_type::iterator it = _dqe.begin(); it != _dqe.end(); it++)
         std::cout << *it << " ";
     std::cout << std::endl;
+    std::cout << std::fixed;
+    std::cout << std::setprecision(5);
+    std::cout << "Vector time = "<< vct_t.count() << " us" << std::endl;
+    std::cout << "Deque time = "<< dqe_t.count() << " us" << std::endl;
     return (std::is_sorted(_vct.rbegin(), _vct.rend()) && std::is_sorted(_dqe.rbegin(), _dqe.rend()));
 }
